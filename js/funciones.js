@@ -18,13 +18,14 @@ var imdb=(function(){
 		var peliculas=[];
 		var id=1;
 		if(localStorage.getItem("peliculas")==null){
-			localStorage.setItem("peliculas",peliculas);
+			localStorage.setItem("peliculas",JSON.stringify(peliculas));
 		}else{
-			peliculas=localStorage.getItem("peliculas");
+			var aux=localStorage.getItem("peliculas");
+			peliculas=JSON.parse(aux);
 		}
 
 		function persistirPelis(){
-			localStorage.setItem("peliculas",peliculas);
+			localStorage.setItem("peliculas",JSON.stringify(peliculas));
 		}
 
 		function ordenarPeliculasId(){
